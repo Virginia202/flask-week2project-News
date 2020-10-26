@@ -1,0 +1,2 @@
+export NEWS_API_KEY=f46d3f10b34f49adba2e8cccd5b1b05b
+export SECRET-KEY=er5df7muthon628y9gd789d

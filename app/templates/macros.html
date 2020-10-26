@@ -1,0 +1,44 @@
+
+{% macro displaySourcesList(sources) %}
+        {% for source in sources %}
+        <div class="overlay" >
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="background-color: #FFFFFF;">
+            <a href='/articles/{{source.id}}'>
+              <h3 style="font-weight:bold">{{ source.name}}</h3>
+            </a>
+            <h5 style="color: #1E1E24;">{{source.category.upper()}}</h5>
+
+            <div class="well" style="height:100px; background-color:#d5dddd;">
+                <p style="font-weight:bold">{{ source.description|truncate(150)}}</p>
+            </div>
+
+          </div>
+          </div>
+
+        {% endfor %}
+{% endmacro %}
+
+<!-- Display articles -->
+{% macro displayArticleList(article_list) %}
+    {% for article in article_list %}
+    <!-- print source here -->
+    <div class="overlay">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="background-color: #FFFFFF;">
+              <li class="well" style="list-style:none;background-color:#dbe9e9;">
+                  <a href="{{article.url}}"style="text-decoration:none;">
+                    <h3 style="font-size:16px;color:#2330e2">
+                        {{article.title}}
+                    </h3>
+                    <p style="font-size:10px;">  Date: {{article.publishedAt[:10]}} </p>
+                    <p style="font-size:12px; color:black;">{{article.description|truncate(70)}}</p>
+                    <a href="{{ article.url }}" class="article-link" style="color:#A8201A;"> Read more...</a>
+                    <img src='{{article.urlToImage}}' width="" height="" class="img-responsive">
+
+              </li>
+      </div>
+      </div>
+
+
+    {% endfor %}
+
+{% endmacro %}
